@@ -2,8 +2,10 @@
 {
     public class SmsDTOs
     {
-        public string ToMobileNumber { get; set; }
-        public string Message { get; set; }
-        public string SenderName { get; set; }
+        public string to { get; set; }
+        public string message { get; set; }
+        public string from { get; set; }
+
+        public string clientReference { get; set; }
     }
 }
