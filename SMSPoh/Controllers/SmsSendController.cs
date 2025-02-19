@@ -29,7 +29,8 @@ namespace SMSPoh.Controllers
                 _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _configuration.GetSection("AuthKey").Value!);
                 string jsonStr = JsonConvert.SerializeObject(Sms);
                 HttpContent content = new StringContent(jsonStr, Encoding.UTF8, Application.Json);
-                HttpResponseMessage response = await _httpClient.PostAsync("/api/rest/send", content);
+                HttpResponseMessage response = await _httpClient.PostAsync("/send", content);
+                //HttpResponseMessage response = await _httpClient.PostAsync("/api/send", content);
 
                 string message = await response.Content.ReadAsStringAsync();
                 if (response.IsSuccessStatusCode)
